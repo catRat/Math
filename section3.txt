@@ -1,0 +1,74 @@
+\section{命题等价式}
+\subsection{引言}
+数学证明中使用的一个重要步骤就是用真值相同的一条语句替换另一条语句。因此，从给定复合命题生成具有相同真值命题的方法广泛使用于数学证明的构造。注意我们用术语“复合命题”来指由命题变元通过逻辑运算形成的一个表达式，比如 $p \land q$ 。  
+
+我们就从根据可能的真值对复合命题进行分类开始讨论。
+
+定义1  一个真值永远为真的复合命题，称为永真式（tautology），也称为重言式。一个真值永远为假的复合命题称为矛盾式（contradiction）。既不是永真式又不是矛盾式的复合命题称为可能式（contingency）。  
+
+在数学推理中永真式和矛盾式往往很重要。下面的例1解释了这两类复合命题。
+
+\subsection{逻辑等价式}
+在所有可能的情况下都有相同真值的两个复合命题称为逻辑等价的。我们也可以如下定义这一概念。   
+
+定义2  如果 $p \leftrightarrow q$ 是永真式，则复合命题 $p$ 和 $q$ 称为 逻辑等价 的。用记号 $p \equiv q$ 表示 $p$ 和 $q$ 是逻辑等价的。  
+
+判断两个复合命题是否等价的方式之一是使用真值表。特别地，复合命题 $p$ 和 $q$ 是等价的当且仅当他们真值表的两列完全一致。例2说明了用这个方法建立了一个非常重要且很有用的逻辑等价式，即 $\neg(p \lor q)$ 和 $\neg p \land \neg q$ 等价。这个逻辑等价式是 德-摩根律之一。  
+
+例2  证明 $\neg(p \lor q)$ 和 $\neg p \land \neg q$ 是等价的。
+
+\begin{table}
+	\begin{tabular}{l|l|l|l|l|l|l}
+		\hline
+		$p$	&	$q$	&	$p \lor q$	&	$\neg(p \lor q)$	&	$\neg p$	&	$\neg q$	&	$\neg p \land \neg q$	\\
+		\hline
+		T	&	T	&	T	&	F	&	F	&	F	&	F	\\
+		T	&	F	&	T	&	F	&	F	&	T	&	F	\\
+		F	&	T	&	T	&	F	&	T	&	F	&	F	\\
+		F	&	F	&	F	&	T	&	T	&	T	&	T	\\
+		\hline
+	\end{tabular}
+\end{table}
+
+表给出了若干重要的等价式。在这些等价关系中，T表示永远为真的复合命题，F表示永远为假的复合命题。
+
+\begin{table}
+	\begin{tabular}{l}
+		\hline
+		$p \to q \equiv \neg p \lor q$	\\
+		$p \to q \equiv \neg q \to \neg p$	\\
+		$p \lor q \equiv \neg p \to \neg p$	\\
+		$p \land q \equiv \neg(p \to \neg q)$	\\
+		$\neg(p \to q) \equiv p \land \neg q$	\\
+		$(p \to q) \land (p \to r) \equiv p \to (q \land r)$	\\
+		$(p \to r) \land (q \to r) \equiv (p \lor q) \to r$	\\
+		$(p \to q) \lor (p \to r) \equiv p \to (q \lor r)$	\\
+		$(p \to r) \lor (q \to r) \equiv (p \land q) \to r$	\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\begin{tabular}{l}
+		\hline
+		$p \leftrightarrow q \equiv (p \to q) \land (q \to p)$	\\
+		$p \leftrightarrow q \equiv \neg p \leftrightarrow \neg p$	\\
+		$p \leftrightarrow q \equiv (p \land q) \lor (\neg p \land \neg q)$	\\
+		$\neg(p \leftrightarrow q) \equiv p \leftrightarrow \neg p$	\\
+		\hline
+	\end{tabular}
+\end{table}
+\subsection{德-摩根律的运用}
+\subsection{构造新的逻辑等价式}
+\subsection{命题的可满足性}
+一个复合命题称为可满足的，如果存在一个对其变元的真值赋值使其为真。当不存在这样的赋值时，即当复合命题对所有变元的真值赋值都是假的，则复合命题是不可满足的。  
+
+当我们找到一个特定的使得复合命题为真的真值赋值时，就证明了它是可满足的。这样的一个赋值称为这个特定的可满足性问题的一个 解。可是，要证明一个复合命题是不可满足的，我们需要证明每一组变元的真值赋值都使其为假。尽管我们总是可以用真值表来确定一个复合命题是否是可满足的，但通常有更有效的方法，如例9所示。  
+
+例9  试确定下列复合命题是否可满足： $(p \lor  \neg q) \land (q \lor \neg r) \land (r \lor \neg p)$ ，$(p \lor q \lor r) \land (\neg p \lor \neg q \neg r)$，以及 $(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p) \land (p \lor q \lor r) \land (\neg p \lor \neg q \lor \neg r)$。
+
+\subsection{可满足性的应用}
+在不同领域（如机器人学、软件测试、计算机辅助设计、机器视觉、集成电路设计、计算机网络以及遗传学）中的许多问题都可以用命题可满足性建立模型。
+
+\subsection{可满足性问题求解}
+真值表可以用于判断复合命题是否为可满足的，或者等价地，其否定是否为永真式。这个问题对于只含有少量变量的复合命题而言可以通过手动来完成，但当变量数目增多时，就变得不切实际了。
